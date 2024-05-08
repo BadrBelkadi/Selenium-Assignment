@@ -10,8 +10,6 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 
-
-
 class ProfilePageTest extends BasePage {
 
     private final By logoutButtonBy = By.xpath("//*[@id=\"personal\"]/ul/li[6]/a");
@@ -29,9 +27,8 @@ class ProfilePageTest extends BasePage {
     }   
 
     public String readPageTitle(){
-        return this.waitAndReturnElement(this.pageTitleBy).getText();
+        return driver.getTitle();
     }
-
 
     public SettingsPageTest settings(){
         WebElement settingsButton = this.waitAndReturnElement(this.settingsButtonBy);

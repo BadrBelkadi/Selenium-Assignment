@@ -15,7 +15,6 @@ class LoginPageTest extends BasePage {
     private final String username = ConfigReader.getProperty("username");
 	private final String password = ConfigReader.getProperty("password");
 
-    
     private final By usernameLocatorbBy = By.id("loginform-username");
 	private final By passwordLocatorBy = By.id("loginform-password");
 	private final By loginLocatorBy = By.xpath("//button[contains(text(),'Login')]");

@@ -22,6 +22,8 @@ public class TvmazeTest {
         int timeoutSeconds = 30; 
         driver.manage().timeouts().implicitlyWait(timeoutSeconds, TimeUnit.SECONDS);
 
+        // WebDriver configuration (modify something in the browser options)
+
         options.addArguments("--user-agent=IST6WP");
         options.addArguments("--disable-extensions");
         options.addArguments("--start-maximized");
@@ -38,35 +40,52 @@ public class TvmazeTest {
         
             Thread.sleep(2000);
 
+            // History test (browser back button)
+
             driver.navigate().to("https://theuselessweb.com/");
             Thread.sleep(1000);
             driver.navigate().back();
+            
+            // Login test
 
             loginPage = mainPage.clickLoginToRedirect();
             Assert.assertTrue(loginPage.pageLoadCheck());        
             DashboardPageTest dashboardPage = loginPage.loginIn();
-            
-
             Assert.assertTrue(dashboardPage.pageLoadCheck());
-            System.out.println(dashboardPage.getBodyText());
 
+            // Profile loading test
 
             ProfilePageTest profilePage = dashboardPage.clickDashboardToRedirect();
             Assert.assertEquals("Profile: daemoon", profilePage.pageLoadCheck());
 
+            // Reading page title 
 
-            Assert.assertEquals("User dashboard", profilePage.readPageTitle());
+            Assert.assertEquals("User dashboard | TVmaze", profilePage.readPageTitle());
 
+            // Settings page test + form sending
 
             SettingsPageTest settingspage = profilePage.settings();
             Assert.assertTrue(settingspage.pageLoadCheck());
             settingspage.sendFormWhileLoggedIn();
 
-            // file upload not working
-            // settingspage = settingspage.fileUpload();
-
+            // Logout test
             LoginPageTest loginPage2 = dashboardPage.logout();
             Assert.assertTrue(loginPage2.pageLoadCheck());
+
+            // Multiple page test from array 
+
+            String[] pageUrls = {
+                "https://www.tvmaze.com/networks",
+                "https://www.tvmaze.com/calendar",
+                "https://www.tvmaze.com/forums",
+                "https://www.tvmaze.com/people"
+            };
+
+            for (String url : pageUrls) {
+                driver.get(url);
+                System.out.println("Current page title: " + driver.getTitle());
+                driver.navigate().back();
+            }
 
             // ----------------------------------------
 
