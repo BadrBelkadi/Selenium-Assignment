@@ -96,7 +96,7 @@ public class TvmazeTest {
             // Signing Up Test
 
             // DashboardPageTest dashboardPage1 = signupPage.SignupPageTest();
-            // Assert.assertTrue(signupPage.pageLoadCheck()); // not working
+            // Assert.assertTrue(signupPage.pageLoadCheck()); 
 
             // ----------------------------------------
         }

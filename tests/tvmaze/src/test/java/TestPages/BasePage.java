@@ -25,9 +25,4 @@ class BasePage {
         return this.driver.findElement(locator);
     }
 
-    public String getBodyText() {
-        WebElement bodyElement = this.waitAndReturnElement(By.tagName("body"));
-        return bodyElement.getText();
-    }
-
 }
