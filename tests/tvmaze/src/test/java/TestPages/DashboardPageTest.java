@@ -21,7 +21,7 @@ class DashboardPageTest extends BasePage {
    
     public DashboardPageTest(WebDriver driver) {
         super(driver);
-        this.driver.get("https://www.tvmaze.com");
+        this.driver.get(ConfigReader.getProperty("dashboardPage"));
     }
 
     public boolean pageLoadCheck() {

@@ -16,7 +16,7 @@ class MainPageTest extends BasePage {
     
     public MainPageTest(WebDriver driver) {
         super(driver);
-        this.driver.get("https://www.tvmaze.com/");
+        this.driver.get(ConfigReader.getProperty("dashboardPage"));
     }
 
     public String getFooterText() {
