@@ -53,25 +53,12 @@ class SettingsPageTest extends BasePage {
     }
 
     public SettingsPageTest fileUpload(){
-        // if (driver instanceof RemoteWebDriver) {
-        //     // Cast WebDriver to RemoteWebDriver
-        //     RemoteWebDriver remoteDriver = (RemoteWebDriver) driver;
-        //     System.out.println("hi");
-        //     // Set LocalFileDetector
-        //     remoteDriver.setFileDetector(new LocalFileDetector());
-        //     remoteDriver.findElement(fileUploadBy).sendKeys("C:\\Users\\L470\\Desktop\\School\\Big-Selenium-Assignment\\tests\\mytests\\image.jpeg");
-        //     this.waitAndReturnElement(this.updateButtonBy).click();
 
-        // }
-        
         File uploadFile = new File("/home/selenium/tests/tvmaze/src/test/java/TestPages/image.png");
         WebElement fileInput = this.waitAndReturnElement(fileUploadBy);
         fileInput.sendKeys(uploadFile.getAbsolutePath());
         this.waitAndReturnElement(this.updateButtonBy).click();
 
-        // this.waitAndReturnElement(this.fileUploadBy).click();
-        // String filePath = "/home/selenium/tests/mytests/image.jpeg";
-        // this.waitAndReturnElement(this.fileUploadBy).sendKeys(filePath);
         
         return new SettingsPageTest(this.driver);
     }

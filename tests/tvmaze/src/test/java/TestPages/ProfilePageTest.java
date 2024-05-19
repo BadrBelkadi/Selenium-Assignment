@@ -27,7 +27,11 @@ class ProfilePageTest extends BasePage {
     }   
 
     public String readPageTitle(){
-        return driver.getTitle();
+        
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        String title = (String) js.executeScript("return document.title");
+
+        return title;
     }
 
     public SettingsPageTest settings(){
