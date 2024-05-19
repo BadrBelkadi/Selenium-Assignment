@@ -29,12 +29,13 @@ public class TvmazeTest {
         options.addArguments("--start-maximized");
         options.addArguments("--disable-notifications");
         
+        
     }
 
     @Test
     public void TvmazeTest() {
         try{
-
+            
             LoginPageTest loginPage = new LoginPageTest(this.driver);
             MainPageTest mainPage = new MainPageTest(this.driver);
         
@@ -67,6 +68,7 @@ public class TvmazeTest {
             SettingsPageTest settingspage = profilePage.settings();
             Assert.assertTrue(settingspage.pageLoadCheck());
             settingspage.sendFormWhileLoggedIn();
+            settingspage.fileUpload();
 
             // Logout test
             LoginPageTest loginPage2 = dashboardPage.logout();

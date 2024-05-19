@@ -64,7 +64,7 @@ class SettingsPageTest extends BasePage {
 
         // }
         
-        File uploadFile = new File("src/test/image.jpeg");
+        File uploadFile = new File("/home/selenium/tests/tvmaze/src/test/java/TestPages/image.png");
         WebElement fileInput = this.waitAndReturnElement(fileUploadBy);
         fileInput.sendKeys(uploadFile.getAbsolutePath());
         this.waitAndReturnElement(this.updateButtonBy).click();
